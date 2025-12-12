@@ -1,0 +1,169 @@
+.footer-section {
+  width: 100%;
+  background: #f3f7fa;
+  padding: 60px 80px 40px;
+  position: relative;
+  font-family: Arial;
+}
+
+/* LEFT SIDE */
+.footer-left {
+  width: 45%;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-logo {
+  width: 45px;
+}
+
+.footer-title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Description under brand */
+.footer-desc {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+  max-width: 400px;
+}
+
+/* RIGHT SIDE */
+.footer-right {
+  position: absolute;
+  right: 80px;
+  top: 60px;
+  text-align: center;
+}
+
+.follow-title {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.follow-icons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* BLUE ICONS (matching screenshot) */
+.soc-icon {
+  font-size: 24px;
+  color: #2a66f7;   /* EXACT BLUE LIKE IMAGE */
+  cursor: pointer;
+}
+
+/* CENTER LINKS */
+.footer-links {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer-links a {
+  margin: 0 12px;
+  color: #444;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* COPYRIGHT TEXT */
+.footer-copy {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #666;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-btn {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  background: #25d366;
+  color: #fff;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  .footer-section {
+    padding: 50px 40px 40px;
+  }
+
+  .footer-left {
+    width: 100%;
+  }
+
+  .footer-right {
+    position: static;
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+/* Mobile Large (max-width: 600px) */
+@media (max-width: 600px) {
+
+  .footer-section {
+    padding: 40px 20px 30px;
+    text-align: center;
+  }
+
+  .footer-left {
+    width: 100%;
+  }
+
+  .footer-brand {
+    justify-content: center;
+  }
+
+  .footer-desc {
+    margin: 0 auto;
+  }
+
+  .footer-right {
+    position: static;
+    margin-top: 20px;
+  }
+
+  .footer-links a {
+    display: block;
+    margin: 8px 0;
+  }
+
+  .whatsapp-btn {
+    right: 20px;
+    bottom: 20px;
+    padding: 10px;
+    font-size: 22px;
+  }
+}
+
+/* Mobile Small (max-width: 400px) */
+@media (max-width: 400px) {
+  .footer-title {
+    font-size: 20px;
+  }
+
+  .soc-icon {
+    font-size: 22px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+  }
+}

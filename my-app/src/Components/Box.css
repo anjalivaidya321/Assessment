@@ -1,0 +1,55 @@
+/* Wrapper — horizontal centering, no top/bottom space */
+.box-wrapper {
+  display: flex;
+  justify-content: center;   /* horizontal center */
+  width: 100%;
+  padding: 0 80px;          /* left-right spacing like Hero */
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Container — vertical layout with small gap */
+.box-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;                 /* small spacing between elements */
+}
+
+/* Title box */
+.box-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000;
+  background-color: #e0f0ff;  /* light blue */
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: background 0.18s, color 0.18s, transform 0.12s;
+  margin: 0;                 /* remove default margin */
+}
+
+.box-title:hover {
+  background-color: #c0e0ff;
+  cursor: pointer;
+}
+
+/* Subtitle */
+.box-subtitle {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;                 /* remove default margin */
+}
+
+/* Highlight word in subtitle */
+.highlight {
+  color: blue;
+}
+
+/* Description */
+.box-description {
+  font-size: 16px;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0;                 /* remove default margin */
+}

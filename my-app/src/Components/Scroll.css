@@ -1,0 +1,73 @@
+.logo-container {
+  width: 100%;
+  overflow: hidden;
+  /* background: white; */
+  padding: 30px 0;
+  position: relative;
+}
+
+/* SCROLL ANIMATION */
+.logo-scroll {
+  display: flex;
+  width: fit-content;
+  animation: scroll 20s linear infinite;
+}
+
+.logo-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* LOGO BOX */
+.logo-item {
+  flex-shrink: 0;
+  width: 120px;
+  height: 80px;
+  margin: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: #fff; */
+  border-radius: 8px;
+  padding: 10px;
+  
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.logo-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.featured-text {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* HOVER SCALE */
+.logo-item:hover {
+  transform: scale(1.05);
+}
+
+/* IMAGE DEFAULT = GRAY */
+.logo-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+/* HOVER COLOR */
+.logo-item:hover img {
+  filter: grayscale(0%);
+}
+
+/* SCROLL ANIMATION */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

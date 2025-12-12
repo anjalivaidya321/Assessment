@@ -1,0 +1,138 @@
+.founders {
+  padding: 48px 0;
+  background: linear-gradient(180deg, #f6f8fb 0%, #eef3f6 100%);
+  width: 100%;
+}
+
+.founders__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.founders__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ----------- TOP HEADING (image reference) ------------ */
+
+.mentors-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.mentors-header .badge {
+  background: #e0edff;
+  color: #2563eb;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.main-title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.main-title span {
+  color: #2563eb; /* Blue colored 'best' */
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin-top: 0;
+}
+
+
+.founder-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.founder-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+}
+
+.founder-card__image-wrap {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  position: relative;
+}
+
+.founder-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms ease;
+}
+
+.founder-card:hover .founder-card__image {
+  transform: scale(1.08);
+}
+
+.founder-card__content {
+  padding: 20px 18px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.founder-card__badge {
+  background: #2563eb;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.founder-card__name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+}
+
+.founder-card__handle {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .founders__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .founders__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .founders__container {
+    padding: 0 20px;
+  }
+  
+  .founder-card__image-wrap {
+    height: 340px;
+  }
+}

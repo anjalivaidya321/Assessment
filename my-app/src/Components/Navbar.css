@@ -1,0 +1,119 @@
+/* reset basics */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, Helvetica, sans-serif; overflow-x: hidden; }
+
+/* outer wrapper to give left-right page spacing */
+.nav-outer {
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* container keeps navbar centered with margins */
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;           /* space on left & right */
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* LEFT: logo + brand */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;           /* do not shrink too far */
+}
+
+.nav-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  display: block;
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #111;
+}
+
+/* CENTER: stays centered but doesn't force overflow */
+.nav-center {
+  flex: 1;                  /* take remaining space */
+  display: flex;
+  justify-content: center;
+  pointer-events: none;     /* center text not interactive (clicks pass to links if needed) */
+}
+
+.center-link {
+  pointer-events: auto;     /* make the link clickable */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: black;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.18s, color 0.18s, transform 0.12s;
+}
+
+.center-link:hover {
+  background: rgba(11,59,219,0.08);
+  transform: translateY(-1px);
+}
+
+/* RIGHT: buttons */
+.nav-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* base button */
+.btn {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, transform 0.12s;
+  border: none;
+}
+
+/* Login: subtle outline */
+.btn-login {
+  background: transparent;
+  color: #111;
+  border: 1px solid rgba(0,0,0,0.12);
+}
+
+.btn-login:hover {
+  background: rgba(0,0,0,0.04);
+  transform: translateY(-1px);
+}
+
+/* Signup/Get Started: primary filled */
+.btn-signup {
+  background: #0056ff;
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(0,86,255,0.12);
+}
+
+.btn-signup:hover {
+  background: #0043d1;
+  transform: translateY(-1px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 680px) {
+  .brand { display: none; }           /* hide brand text to save space */
+  .center-link { font-size: 14px; }
+  .nav-logo { width: 30px; height: 30px; }
+  .btn { padding: 7px 10px; font-size: 13px; }
+  .nav-container { padding: 10px; }
+}
