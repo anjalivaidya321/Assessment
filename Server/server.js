@@ -9,8 +9,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI);
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB connected"))
+  .catch(err => console.error(err));
 
+// User schema
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true, trim: true },
   email: { type: String, required: true, unique: true, lowercase: true, trim: true },
@@ -18,6 +22,7 @@ const userSchema = new mongoose.Schema({
 });
 const User = mongoose.model('User', userSchema);
 
+// Auth middleware
 const auth = (req, res, next) => {
   const authHeader = req.headers.authorization || '';
   const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : null;
@@ -31,6 +36,7 @@ const auth = (req, res, next) => {
   }
 };
 
+// Routes
 app.post('/api/register', async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -44,7 +50,7 @@ app.post('/api/register', async (req, res) => {
     return res.status(500).json({ message: 'Server error' });
   }
 });
-console.log("connected")
+
 app.post('/api/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -64,5 +70,5 @@ app.get('/api/profile', auth, (req, res) => {
   return res.json({ message: 'Profile access granted', user: { id: req.user.sub, email: req.user.email } });
 });
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`API running on ${port}`));
+// Export for Vercel
+module.exports = app;

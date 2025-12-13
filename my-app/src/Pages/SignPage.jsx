@@ -16,12 +16,7 @@ export default function SignupPage() {
     setLoading(true);
 
     try {
-      await axios.post('http://localhost:5000/api/register', {
-        name,
-        email,
-        password
-      });
-
+      await axios.post('/api/register', { name, email, password });
       setMessage('Signup successful! You can login now.');
     } catch (err) {
       setMessage(err.response?.data?.message || 'Signup failed');
