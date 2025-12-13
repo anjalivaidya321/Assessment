@@ -54,17 +54,35 @@ app.post('/api/register', async (req, res) => {
 app.post('/api/login', async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log("Login attempt:", email); // <-- log incoming email
+
     if (!email || !password) return res.status(400).json({ message: 'All fields required' });
+
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ message: 'Invalid credentials' });
+
+    if (!user.password) {
+      console.error("User password missing in DB:", user);
+      return res.status(500).json({ message: 'Server error: password missing' });
+    }
+
     const ok = await bcrypt.compare(password, user.password);
     if (!ok) return res.status(400).json({ message: 'Invalid credentials' });
+
+    if (!process.env.JWT_SECRET) {
+      console.error("JWT_SECRET missing!");
+      return res.status(500).json({ message: 'Server config error' });
+    }
+
     const token = jwt.sign({ sub: user._id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
     return res.json({ token });
+
   } catch (err) {
-    return res.status(500).json({ message: 'Server error' });
+    console.error("Login error:", err); // <-- this will show exact backend error
+    return res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
+
 
 app.get('/api/profile', auth, (req, res) => {
   return res.json({ message: 'Profile access granted', user: { id: req.user.sub, email: req.user.email } });
