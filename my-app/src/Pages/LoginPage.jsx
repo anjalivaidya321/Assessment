@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import "./LoginPage.css";
 
 export default function LoginPage() {
@@ -15,7 +16,7 @@ export default function LoginPage() {
     setMsg('');
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/login', { email, password });
+      const res = await axios.post('/api/login', { email, password });
       localStorage.setItem('token', res.data.token);
       setMsg('Logged in successfully!');
       setTimeout(() => navigate('/'), 1000);
@@ -65,8 +66,9 @@ export default function LoginPage() {
         </form>
 
         <div className="auth-footer">
-          Don't have an account? <a href="/signup">Sign up</a>
-        </div>
+  Don't have an account? <Link to="/signup">Sign up</Link>
+</div>
+
       </div>
     </div>
   );
