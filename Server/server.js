@@ -88,6 +88,10 @@ app.get('/api/profile', auth, (req, res) => {
   return res.json({ message: 'Profile access granted', user: { id: req.user.sub, email: req.user.email } });
 });
 
+app.get('/', (req, res) => {
+  res.send('Backend is running');
+});
+
 // Start server locally
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
